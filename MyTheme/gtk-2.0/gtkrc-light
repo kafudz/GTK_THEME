@@ -1,0 +1,64 @@
+# MyTheme - GTK 2 light
+
+style "mytheme-default" {
+  bg[NORMAL]      = "#f7f7f7"
+  bg[PRELIGHT]    = "#f3f3f3"
+  bg[ACTIVE]      = "#ededed"
+  bg[SELECTED]    = "#c9a227"
+  bg[INSENSITIVE] = "#f8f8f8"
+
+  fg[NORMAL]      = "#171311"
+  fg[PRELIGHT]    = "#171311"
+  fg[ACTIVE]      = "#171311"
+  fg[SELECTED]    = "#f8f8f8"
+  fg[INSENSITIVE] = "#6f6f6f"
+
+  base[NORMAL]      = "#f7f7f7"
+  base[PRELIGHT]    = "#f8f8f8"
+  base[ACTIVE]      = "#f3f3f3"
+  base[SELECTED]    = "#f2e6c2"
+  base[INSENSITIVE] = "#f8f8f8"
+
+  text[NORMAL]      = "#171311"
+  text[PRELIGHT]    = "#171311"
+  text[ACTIVE]      = "#171311"
+  text[SELECTED]    = "#f8f8f8"
+  text[INSENSITIVE] = "#6f6f6f"
+
+  xthickness = 1
+  ythickness = 1
+}
+
+style "mytheme-button" = "mytheme-default" {
+  bg[NORMAL] = "#f3f3f3"
+}
+
+style "mytheme-entry" = "mytheme-default" {
+  bg[NORMAL]   = "#f7f7f7"
+  base[NORMAL] = "#f7f7f7"
+}
+
+style "mytheme-menu" = "mytheme-default" {
+  bg[NORMAL]   = "#f8f8f8"
+  bg[SELECTED] = "#ededed"
+}
+
+style "mytheme-tree" = "mytheme-default" {
+  ythickness = 4
+}
+
+style "mytheme-statusbar" = "mytheme-default" {
+ bg[NORMAL] = "#f8f8f8"
+ xthickness = 1
+ ythickness = 1
+ GtkStatusbar::shadow-type = GTK_SHADOW_IN
+}
+
+class "GtkWidget" style "mytheme-default"
+class "GtkButton" style "mytheme-button"
+class "GtkEntry" style "mytheme-entry"
+class "GtkTextView" style "mytheme-entry"
+class "GtkMenu" style "mytheme-menu"
+class "GtkMenuItem" style "mytheme-menu"
+class "GtkTreeView" style "mytheme-tree"
+class "GtkStatusbar" style "mytheme-statusbar"

@@ -1,0 +1,108 @@
+
+entry, spinbutton, .entry, searchentry { background: @my_base; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 8px; caret-color: @my_accent; }
+entry:focus, spinbutton:focus, searchentry:focus { border-color: @my_accent; }
+entry:disabled { background: @my_surface; color: @my_fg_dim; }
+selection, :selected, .view:selected, row:selected, row:selected label { background-color: @my_selected; color: @my_fg; }
+
+notebook > header { background: @my_surface; border-bottom: 1px solid @my_border; padding: 0 2px; }
+notebook > header > tabs > tab { background: transparent; color: @my_fg_dim; border: 1px solid transparent; padding: 4px 10px; }
+notebook > header > tabs > tab:hover { color: @my_fg; background: @my_surface_alt; }
+notebook > header > tabs > tab:checked { color: @my_fg; background: @my_base; border-color: @my_border; border-bottom-color: @my_base; }
+window.background.chromium notebook > header > tabs > tab + tab { border-left: 1px solid @my_border; }
+
+row, listbox row { padding: 6px 8px; min-height: 24px; }
+row:hover, .view:hover, treeview.view:hover { background-color: @my_surface_alt; }
+.sidebar, sidebar, placessidebar, .navigation-sidebar { background: @my_surface; color: @my_fg; border-right: 1px solid @my_border; }
+.sidebar row, .navigation-sidebar row, placessidebar row { padding: 7px 8px; min-height: 26px; }
+/* MyTheme - GTK 3 dark minimalist */
+@define-color my_base #f7f7f7;
+@define-color my_surface #f8f8f8;
+@define-color my_surface_alt #f3f3f3;
+@define-color my_border #dbdbdb;
+@define-color my_fg #171311;
+@define-color my_fg_dim #6f6f6f;
+@define-color my_accent #c9a227;
+@define-color my_accent_fg #ffffff;
+@define-color my_selected rgba(201, 162, 39, 0.22);
+@define-color my_success #0a8f00;
+@define-color my_warning #9a7400;
+@define-color my_error #c0261a;
+
+* { color: @my_fg; -gtk-icon-style: regular; -gtk-icon-shadow: none; text-shadow: none; box-shadow: none; }
+.background, window, dialog, messagedialog, .view, textview text, list, row, listbox { background-color: @my_base; color: @my_fg; }
+
+headerbar, .titlebar { background: @my_surface; color: @my_fg; border-bottom: 1px solid @my_border; padding: 4px 6px; }
+headerbar:backdrop, .titlebar:backdrop { background: @my_base; color: @my_fg_dim; }
+headerbar .title { font-weight: 600; }
+headerbar .subtitle { color: @my_fg_dim; font-size: 0.9em; }
+
+button { background: @my_surface_alt; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 10px; min-height: 22px; }
+button:hover { background: @my_selected; border-color: @my_accent; }
+button:active, button:checked { background: @my_selected; border-color: @my_accent; }
+button:disabled { background: @my_surface; color: @my_fg_dim; border-color: @my_border; }
+button.flat { background: transparent; border-color: transparent; }
+button.suggested-action { background: @my_accent; color: @my_accent_fg; border-color: @my_accent; }
+button.destructive-action { background: @my_error; color: @my_accent_fg; border-color: @my_error; }
+button.circular { border-radius: 9999px; }
+
+progressbar trough, levelbar trough, scale trough { background: @my_surface_alt; border: 1px solid @my_border; border-radius: 2px; min-height: 6px; }
+progressbar progress, levelbar block.filled, scale highlight, scale fill { background: @my_accent; border: none; border-radius: 2px; }
+scale slider { background: @my_fg; border: 2px solid @my_accent; border-radius: 9999px; min-width: 12px; min-height: 12px; }
+checkbutton check, radio radio { margin-right: 8px; }
+/* Menu checkmarks (View, File, Bookmarks, ...) */
+menuitem check, menuitem radio, checkmenuitem check, radiomenuitem radio { margin-right: 10px; }
+check, radio { background: @my_base; border: 1px solid @my_border; min-width: 14px; min-height: 14px; border-radius: 2px; }
+radio { border-radius: 9999px; }
+check:checked, radio:checked { background: @my_accent; border-color: @my_accent; color: @my_accent_fg; }
+switch { background: @my_surface_alt; border: 1px solid @my_border; border-radius: 12px; min-width: 36px; min-height: 18px; }
+switch slider { background: @my_fg_dim; border-radius: 9999px; min-width: 14px; min-height: 14px; }
+switch:checked { background: @my_accent; border-color: @my_accent; }
+switch:checked slider { background: @my_accent_fg; }
+
+menu, .menu, popover, .popover, .context-menu { background: @my_surface; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px; }
+menuitem, .menuitem { background: transparent; color: @my_fg; border-radius: 2px; padding: 5px 8px; }
+menuitem:hover, menuitem:selected { background: @my_selected; color: @my_fg; }
+tooltip, .tooltip { background: @my_surface_alt; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 6px; }
+
+scrollbar { -GtkScrollbar-has-backward-stepper: false; -GtkScrollbar-has-forward-stepper: false; -GtkScrollbar-has-secondary-backward-stepper: false; -GtkScrollbar-has-secondary-forward-stepper: false; }
+scrollbar, scrollbar trough { background: transparent; border: none; }
+scrollbar slider { background: #b8bcc2; border: none; border-radius: 2px; min-width: 4px; min-height: 24px; margin: 1px; }
+scrollbar slider:hover { background: #8c9096; }
+scrollbar button, scrollbar arrow { min-width: 0; min-height: 0; padding: 0; margin: 0; border: none; -gtk-icon-source: none; background: none; }
+
+frame > border, .frame { border: 1px solid @my_border; border-radius: 2px; background: transparent; }
+separator { background: @my_border; min-width: 1px; min-height: 1px; }
+paned > separator { background-color: @my_border; background-image: none; box-shadow: none; border: none; min-width: 1px; min-height: 1px; }
+
+/* Paned handles: kill inherited dotted texture / grip lines */
+paned > separator.wide,
+paned > separator.vertical,
+paned > separator.horizontal,
+paned.horizontal > separator,
+paned.vertical > separator,
+paned > separator:hover {
+    background-color: @my_border;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+/* Status bar: bordered surface bar */
+statusbar, .statusbar { background: @my_surface; color: @my_fg_dim; border: none; border-top: 1px solid @my_border; padding: 3px 6px; min-height: 0; }
+statusbar frame, statusbar frame > border, statusbar > frame, statusbar > frame > border, .statusbar frame, .statusbar frame > border { background: transparent; border: none; padding: 0; }
+.dim-label { color: @my_fg_dim; }
+:link, link { color: @my_accent; }
+.success { color: @my_success; }
+.warning { color: @my_warning; }
+.error { color: @my_error; }
+
+/* Remove the paned separator's dotted grip icon; keep a single 1px divider */
+paned separator { -gtk-icon-source: none; }
+
+/* Side-pane: roomy vertical spacing between treeview rows */
+.side-pane treeview.view {
+    -GtkTreeView-vertical-separator: 12;
+    -GtkTreeView-horizontal-separator: 10;
+}

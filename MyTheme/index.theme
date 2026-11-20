@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=MyTheme
+Comment=Modern GTK2/GTK3/GTK4 theme based on #101113, with light and dark variants
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=MyTheme
+MetacityTheme=MyTheme
+IconTheme=Vimix-white-dark
+CursorTheme=Adwaita
+ButtonLayout=close,minimize,maximize:menu
