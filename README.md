@@ -1,1 +1,3 @@
-# GTK_THEME
+##### GTK_THEME
+```
+Basic gtk themes
