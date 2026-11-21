@@ -1,87 +1,92 @@
 # MyTheme
 
-A modern GTK2 / GTK3 / GTK4 theme. The dark palette is VS Code Dark+ inspired
-and keeps the requested `#101113` window base; the light variant is a
-colour-remapped companion using the same widget rules.
+A minimal GTK2 / GTK3 / GTK4 theme with a dark and a light variant. Both
+variants share the same widget rules; only colour values differ.
 
-## Files
+## Layout
 
 | Path | Purpose |
 | --- | --- |
-| `~/.gtkrc-2.0` | GTK2 settings (`gtk-theme-name`, `gtk-icon-theme-name`, …) |
-| `~/.config/gtk-3.0/settings.ini` | GTK3 settings |
-| `~/.config/gtk-3.0/gtk.css` | GTK3 active stylesheet |
-| `~/.config/gtk-4.0/settings.ini` | GTK4 settings |
-| `~/.config/gtk-4.0/gtk.css` | GTK4 active stylesheet |
-| `~/.themes/MyTheme/gtk-2.0/gtkrc` | GTK2 theme definition |
-| `~/.themes/MyTheme/gtk-3.0/gtk.css` | GTK3 theme stylesheet |
-| `~/.themes/MyTheme/gtk-4.0/gtk.css` | GTK4 theme stylesheet |
+| `gtk-2.0/gtkrc-dark`, `gtkrc-light` | GTK2 variants |
+| `gtk-2.0/gtkrc` | GTK2 active copy (the only file GTK2 reads) |
+| `gtk-3.0/gtk-dark.css`, `gtk-light.css` | GTK3 variants |
+| `gtk-3.0/gtk.css` | GTK3 active copy |
+| `gtk-4.0/gtk-dark.css`, `gtk-light.css` | GTK4 variants |
+| `gtk-4.0/gtk.css` | GTK4 active copy |
+| `index.theme` | Theme metadata |
+| `switch-mode.sh` | Activates a variant and installs the per-user files |
+| `user-config/` | Templates: `.gtkrc-2.0`, `gtk-3.0/settings.ini`, `gtk-4.0/settings.ini` |
 
-Each GTK3/GTK4 theme directory also contains `gtk-dark.css` and `gtk-light.css`.
+`gtk.css` and `gtkrc` are copies of the active variant and are rewritten by
+`switch-mode.sh`; edit the `-dark` / `-light` files instead. The committed
+default is dark. GTK3/GTK4 also load `gtk-dark.css` on their own when
+`gtk-application-prefer-dark-theme=1`.
 
-## Spacing
+## Install
 
-Side panes use a 1px right border and a 1px `paned > separator` handle.
-Sidebar rows have 8px/9px vertical padding (26px/28px minimum height), and
-other list/rows use 7px/8px vertical padding (24px/26px minimum height).
-GTK2 tree panes use `ythickness = 4`. Rectangular widgets use 2px corners;
-circular controls (radio buttons, sliders, switches, `.circular`) keep 50%.
-Scrollbars are thin (4px) VS Code style with a transparent trough.
-Status bars have no box: GTK3/GTK4 use transparent, borderless `.statusbar`
-with a single 1px line above it, and GTK2 sets
-`GtkStatusbar::shadow-type = GTK_SHADOW_NONE`.
+1. Copy or symlink this directory to `~/.themes/MyTheme`.
+2. Run `~/.themes/MyTheme/switch-mode.sh dark` (or `light`).
+3. Optional: copy `user-config/.gtkrc-2.0` to `~/.gtkrc-2.0`. It is an
+   `nwg-look` export; its `include` line points at the author's home directory
+   and must be adapted.
 
-PCManFM (GTK3) puts its free-space label inside a `GtkFrame` in the statusbar.
-GTK3's `GtkStatusbar` has no `.statusbar` CSS class, so the theme targets it
-with the element selector `statusbar frame > border` to remove that box.
+`switch-mode.sh` copies the chosen variant to the theme's `gtk.css` / `gtkrc`,
+installs `gtk.css` into `~/.config/gtk-3.0` and `~/.config/gtk-4.0` (libadwaita
+apps ignore the theme name and read GTK4 CSS from there), creates
+`settings.ini` from the templates if missing, and sets
+`gtk-application-prefer-dark-theme`. It honours `XDG_CONFIG_HOME`, checks every
+input before changing anything, and is safe to re-run.
 
-## Dark / light mode
+**Re-run it after every theme update.** The per-user `gtk.css` is loaded on top
+of the theme and silently overrides it, so a stale copy hides fixes.
 
-GTK applications prefer dark mode via `gtk-application-prefer-dark-theme=1`
-in the `settings.ini` files. To switch every toolkit at once:
+Restart running GTK applications afterwards; GTK2/GTK3 do not hot-reload
+`settings.ini`.
 
-```sh
-~/.themes/MyTheme/switch-mode.sh light   # or: dark
-```
+## Design notes
 
-Then restart running GTK applications (GTK2/GTK3 do not hot-reload `settings.ini`;
-GTK4 applications may need a restart too).
-
-Manual switching: copy `gtk-light.css` over `gtk.css` in
-`~/.config/gtk-3.0/` and `~/.config/gtk-4.0/`, set
-`gtk-application-prefer-dark-theme=0`, and copy `gtk-2.0/gtkrc-light` over
-`gtk-2.0/gtkrc`.
-
-## Brave / Chromium tab separator
-
-Brave with GTK theming enabled draws its tab strip through `GtkNotebook`, so
-the theme adds a 1px `border-left` between adjacent tabs using
-`@my_border_soft`. The rule is scoped to
-`window.background.chromium notebook > header > tabs > tab`, so native GTK
-notebooks are unaffected. It is present in every GTK3/GTK4 stylesheet variant
-and in the installed copies under `~/.themes/MyTheme` and `~/.config`.
-
-Restart Brave to apply.
+- Rectangular widgets use 2px corners; sliders, radio buttons and
+  `.circular` buttons are round.
+- Scrollbars are thin (4px) with a transparent trough and no arrow buttons.
+- Paned handles are a single 1px line; the dotted grip is removed.
+- Row spacing: GTK3 rows use 6px/8px padding (sidebar rows 7px/8px); GTK4 rows
+  use 8px/12px (sidebar rows 9px/12px). GTK2 tree views use `ythickness = 4`.
+- Status bars are a surface-coloured bar with a 1px top border. PCManFM (GTK3)
+  puts its free-space label in a `GtkFrame` inside the status bar; GTK3's
+  `GtkStatusbar` has no `.statusbar` class, so the theme uses the element
+  selector `statusbar frame > border` to remove that box.
+- Brave/Chromium with GTK theming draws its tab strip through `GtkNotebook`, so
+  adjacent tabs get a 1px `border-left` separator. The rule is scoped to
+  `window.background.chromium notebook > header > tabs > tab`; native
+  notebooks are unaffected. Restart the browser to apply.
 
 ## Palette
 
-The dark palette is VS Code Dark+ inspired while retaining the requested
-`#101113` window base.
+GTK3, GTK4 and GTK2-light share one palette (`@define-color` names, GTK3/GTK4):
 
 | Role | Dark | Light |
 | --- | --- | --- |
-| Base / window | `#101113` | `#f6f7f8` |
-| Sidebar surface | `#121314` | `#ffffff` |
-| Raised surface | `#252526` | `#eef0f2` |
-| Hover surface | `#2a2d2e` | `#e3e6ea` |
-| Border | `#3c3c3c` | `#d3d6db` |
-| Soft border | `#2b2b2b` | `#e6e8eb` |
-| Foreground | `#d4d4d4` | `#202124` |
-| Muted foreground | `#858585` | `#5f6368` |
-| Accent | `#007acc` | `#005a9e` |
-| Selection | `#264f78` | `rgba(0,122,204,0.18)` |
-| Success / warning / error | `#4ec9b0` / `#cca700` / `#f14c4c` | `#00796b` / `#9a6700` / `#c5221f` |
+| `my_base` (window) | `#121314` | `#f7f7f7` |
+| `my_surface` | `#1f1f1f` | `#f8f8f8` |
+| `my_surface_hi` (GTK3: `my_surface_alt`) | `#232323` | `#f3f3f3` |
+| `my_border` | `#282828` | `#dbdbdb` |
+| `my_fg` | `#ededed` | `#171311` |
+| `my_fg_dim` | `#a0a0a0` | `#6f6f6f` |
+| `my_accent` | `#fab283` | `#c9a227` |
+| `my_selected` | `rgba(250,178,131,0.20)` | `rgba(201,162,39,0.22)` |
+| `my_success` / `my_warning` / `my_error` | `#12c905` / `#fcd53a` / `#fc533a` | `#0a8f00` / `#9a7400` / `#c0261a` |
 
-Previous configuration files were preserved as `*.bak.<timestamp>` next to
-their originals. `~/.config/gtk-4.0/assets` still points at the previously
-used `Fluent-Dark` theme; MyTheme does not reference it, so it is harmless.
+`gtk-2.0/gtkrc-dark` still uses an older, VS Code Dark+-style palette (window
+`#101113`, foreground `#d4d4d4`, accent `#007acc`, selection `#264f78`), so
+GTK2 dark applications do not match GTK3/GTK4 dark.
+
+## Checks
+
+```sh
+scripts/check.py        # from the repository root
+```
+
+Verifies CSS/rc syntax, that every `@colour` is defined, that dark and light
+stay structurally identical, that the active copies match the dark variant, and
+that `switch-mode.sh` parses. It does not render anything; check visual changes
+in a real GTK session.

@@ -1,19 +1,3 @@
-
-entry, spinbutton, .entry, searchentry { background: @my_base; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 8px; caret-color: @my_accent; }
-entry:focus, spinbutton:focus, searchentry:focus { border-color: @my_accent; }
-entry:disabled { background: @my_surface; color: @my_fg_dim; }
-selection, :selected, .view:selected, row:selected, row:selected label { background-color: @my_selected; color: @my_fg; }
-
-notebook > header { background: @my_surface; border-bottom: 1px solid @my_border; padding: 0 2px; }
-notebook > header > tabs > tab { background: transparent; color: @my_fg_dim; border: 1px solid transparent; padding: 4px 10px; }
-notebook > header > tabs > tab:hover { color: @my_fg; background: @my_surface_alt; }
-notebook > header > tabs > tab:checked { color: @my_fg; background: @my_base; border-color: @my_border; border-bottom-color: @my_base; }
-window.background.chromium notebook > header > tabs > tab + tab { border-left: 1px solid @my_border; }
-
-row, listbox row { padding: 6px 8px; min-height: 24px; }
-row:hover, .view:hover, treeview.view:hover { background-color: @my_surface_alt; }
-.sidebar, sidebar, placessidebar, .navigation-sidebar { background: @my_surface; color: @my_fg; border-right: 1px solid @my_border; }
-.sidebar row, .navigation-sidebar row, placessidebar row { padding: 7px 8px; min-height: 26px; }
 /* MyTheme - GTK 3 dark minimalist */
 @define-color my_base #f7f7f7;
 @define-color my_surface #f8f8f8;
@@ -27,6 +11,20 @@ row:hover, .view:hover, treeview.view:hover { background-color: @my_surface_alt;
 @define-color my_success #0a8f00;
 @define-color my_warning #9a7400;
 @define-color my_error #c0261a;
+
+entry, spinbutton, .entry, searchentry { background: @my_base; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 8px; caret-color: @my_accent; }
+entry:focus, spinbutton:focus, searchentry:focus { border-color: @my_accent; }
+entry:disabled { background: @my_surface; color: @my_fg_dim; }
+notebook > header { background: @my_surface; border-bottom: 1px solid @my_border; padding: 0 2px; }
+notebook > header > tabs > tab { background: transparent; color: @my_fg_dim; border: 1px solid transparent; padding: 4px 10px; }
+notebook > header > tabs > tab:hover { color: @my_fg; background: @my_surface_alt; }
+notebook > header > tabs > tab:checked { color: @my_fg; background: @my_base; border-color: @my_border; border-bottom-color: @my_base; }
+window.background.chromium notebook > header > tabs > tab + tab { border-left: 1px solid @my_border; }
+row, listbox row { padding: 6px 8px; min-height: 24px; }
+row:hover, .view:hover, treeview.view:hover { background-color: @my_surface_alt; }
+selection, :selected, .view:selected, treeview.view:selected, row:selected, row:selected label { background-color: @my_selected; color: @my_fg; }
+.sidebar, sidebar, placessidebar, .navigation-sidebar { background: @my_surface; color: @my_fg; border-right: 1px solid @my_border; }
+.sidebar row, .navigation-sidebar row, placessidebar row { padding: 7px 8px; min-height: 26px; }
 
 * { color: @my_fg; -gtk-icon-style: regular; -gtk-icon-shadow: none; text-shadow: none; box-shadow: none; }
 .background, window, dialog, messagedialog, .view, textview text, list, row, listbox { background-color: @my_base; color: @my_fg; }
@@ -48,7 +46,7 @@ button.circular { border-radius: 9999px; }
 progressbar trough, levelbar trough, scale trough { background: @my_surface_alt; border: 1px solid @my_border; border-radius: 2px; min-height: 6px; }
 progressbar progress, levelbar block.filled, scale highlight, scale fill { background: @my_accent; border: none; border-radius: 2px; }
 scale slider { background: @my_fg; border: 2px solid @my_accent; border-radius: 9999px; min-width: 12px; min-height: 12px; }
-checkbutton check, radio radio { margin-right: 8px; }
+checkbutton check, radiobutton radio { margin-right: 8px; }
 /* Menu checkmarks (View, File, Bookmarks, ...) */
 menuitem check, menuitem radio, checkmenuitem check, radiomenuitem radio { margin-right: 10px; }
 check, radio { background: @my_base; border: 1px solid @my_border; min-width: 14px; min-height: 14px; border-radius: 2px; }

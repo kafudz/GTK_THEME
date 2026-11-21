@@ -1,6 +1,6 @@
 /*
  * MyTheme - GTK 4 stylesheet
- * Dark variant. Base colour: #101113.
+ * Light variant. Base colour: #f7f7f7.
  * Widget node names follow GTK4 conventions (window, headerbar, row, ...).
  * The light variant is generated in gtk-light.css by remapping the colours.
  */
@@ -179,10 +179,10 @@ selection,
    Chromium renders its tab strip through GtkNotebook, so style adjacent tabs. */
 window.background.chromium notebook > header > tabs > tab + tab,
 window.background.chromium notebook > header > tabs > tab:checked + tab {
- border-left: 1px solid @my_border_soft;
- border-radius: 0;
- margin-left: -1px;
- padding-left: 11px;
+    border-left: 1px solid @my_border_soft;
+    border-radius: 0;
+    margin-left: -1px;
+    padding-left: 11px;
 }
 
 /* Notebook tabs */
@@ -310,13 +310,11 @@ slider {
 }
 
 /* Check and radio buttons */
-checkbutton check, radiobutton radio { margin-right: 8px; }
-/* Menu checkmarks (View, File, Bookmarks, ...) */
-checkmenuitem check, radiomenuitem radio, menuitem check, menuitem radio { margin-right: 10px; }
 checkbutton > check,
 radiobutton > radio,
 checkbutton check,
 radiobutton radio {
+    margin-right: 8px;
     background-color: @my_base;
     border: 2px solid @my_border;
     border-radius: 2px;
@@ -404,7 +402,6 @@ tooltip,
 }
 
 /* Scrollbars - hide arrow buttons */
-
 scrollbar button,
 .scrollbar button,
 scrollbar arrow,
@@ -511,7 +508,6 @@ paned > separator:hover {
     min-width: 1px;
     min-height: 1px;
 }
-
 
 /* Labels, links and semantic colours */
 .dim-label {
