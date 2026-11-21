@@ -1,0 +1,6 @@
+# makepkg build artefacts
+/src/
+/pkg/
+/mytheme-gtk-theme-git/
+*.pkg.tar*
+*.log

@@ -43,6 +43,29 @@ of the theme and silently overrides it, so a stale copy hides fixes.
 Restart running GTK applications afterwards; GTK2/GTK3 do not hot-reload
 `settings.ini`.
 
+## Arch Linux
+
+`PKGBUILD` (repository root) builds `mytheme-gtk-theme-git`:
+
+```sh
+makepkg -si
+```
+
+It installs two themes into `/usr/share/themes`: `MyTheme` (dark) and
+`MyTheme-Light`. Select one by name (`gtk-theme-name=MyTheme-Light` in
+`settings.ini`, or with `nwg-look`); no switching script is needed and the
+package never writes into your home directory. libadwaita apps ignore the theme
+name, so for those copy the stylesheet yourself, e.g.
+`cp /usr/share/themes/MyTheme/gtk-4.0/gtk.css ~/.config/gtk-4.0/gtk.css`.
+Settings templates are in `/usr/share/doc/mytheme-gtk-theme-git/examples/`.
+
+`switch-mode.sh` is not packaged: it writes into the theme directory, which is
+read-only under `/usr`. A copy in `~/.themes/MyTheme` takes precedence over the
+system theme of the same name.
+
+`makepkg` clones the GitHub repository, so it packages what has been pushed,
+not local uncommitted changes.
+
 ## Design notes
 
 - Rectangular widgets use 2px corners; sliders, radio buttons and
