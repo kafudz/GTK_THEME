@@ -97,6 +97,7 @@ GTK3, GTK4 and GTK2-light share one palette (`@define-color` names, GTK3/GTK4):
 | `my_surface` | `#1f1f1f` | `#f8f8f8` |
 | `my_surface_hi` (GTK3: `my_surface_alt`) | `#232323` | `#f3f3f3` |
 | `my_border` | `#282828` | `#dbdbdb` |
+| `my_addressbar` (location entry background) | `#0c0d0e` | `#ffffff` |
 | `my_fg` | `#ededed` | `#171311` |
 | `my_fg_dim` | `#a0a0a0` | `#6f6f6f` |
 | `my_accent` | `#fab283` | `#c9a227` |

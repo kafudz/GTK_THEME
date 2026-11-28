@@ -19,6 +19,7 @@
 @define-color my_success #0a8f00;
 @define-color my_warning #9a7400;
 @define-color my_error #c0261a;
+@define-color my_addressbar #ffffff;
 
 * {
     font-family: "Roboto", "Inter", "Noto Sans", sans-serif;
@@ -86,6 +87,12 @@ toolbar:not(.inline-toolbar),
 .toolbar-row toolbar:not(.inline-toolbar),
 .toolbar-row .toolbar:not(.inline-toolbar) {
     border-bottom: none;
+}
+
+/* Address bar (location entry): its own background so it stands apart from the bar around it */
+.toolbar-row entry,
+.pane-locbox entry {
+    background-color: @my_addressbar;
 }
 
 /* Buttons */
