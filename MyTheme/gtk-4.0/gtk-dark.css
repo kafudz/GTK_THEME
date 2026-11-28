@@ -68,6 +68,14 @@ headerbar .subtitle,
     font-size: 9pt;
 }
 
+/* Address / location bar: 1px line separating it from the content below */
+toolbar:not(.inline-toolbar),
+.toolbar:not(.inline-toolbar) {
+    background-color: @my_surface;
+    border-bottom: 1px solid @my_border;
+    padding: 2px 4px;
+}
+
 /* Buttons */
 button,
 .button {
