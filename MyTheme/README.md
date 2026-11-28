@@ -72,6 +72,10 @@ not local uncommitted changes.
   `.circular` buttons are round.
 - Scrollbars are thin (4px) with a transparent trough and no arrow buttons.
 - Paned handles are a single 1px line; the dotted grip is removed.
+- Toolbars get a 1px line below them. PCManFM puts its toolbar and address bar
+  in one row, which the fork tags with the `toolbar-row` style class, so the
+  theme draws a single line across the whole row. With a PCManFM build that
+  lacks the class, only the toolbar part gets the line.
 - Row spacing: GTK3 rows use 6px/8px padding (sidebar rows 7px/8px); GTK4 rows
   use 8px/12px (sidebar rows 9px/12px). GTK2 tree views use `ythickness = 4`.
 - Status bars are a surface-coloured bar with a 1px top border. PCManFM (GTK3)
