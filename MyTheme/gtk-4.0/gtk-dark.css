@@ -68,12 +68,24 @@ headerbar .subtitle,
     font-size: 9pt;
 }
 
-/* Address / location bar: 1px line separating it from the content below */
+/* Toolbars: 1px line separating them from the content below */
 toolbar:not(.inline-toolbar),
 .toolbar:not(.inline-toolbar) {
     background-color: @my_surface;
     border-bottom: 1px solid @my_border;
     padding: 2px 4px;
+}
+
+/* Toolbar + address bar sharing one row: a single line across the whole row */
+.toolbar-row {
+    background-color: @my_surface;
+    border-bottom: 1px solid @my_border;
+    padding: 2px 0;
+}
+
+.toolbar-row toolbar:not(.inline-toolbar),
+.toolbar-row .toolbar:not(.inline-toolbar) {
+    border-bottom: none;
 }
 
 /* Buttons */
