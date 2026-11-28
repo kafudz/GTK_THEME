@@ -11,6 +11,7 @@
 @define-color my_success #12c905;
 @define-color my_warning #fcd53a;
 @define-color my_error #fc533a;
+@define-color my_addressbar #0c0d0e;
 
 entry, spinbutton, .entry, searchentry { background: @my_base; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 8px; caret-color: @my_accent; }
 entry:focus, spinbutton:focus, searchentry:focus { border-color: @my_accent; }
@@ -39,6 +40,8 @@ toolbar:not(.inline-toolbar) { background: @my_surface; border-bottom: 1px solid
 /* PCManFM: toolbar + address bar share one row; draw a single line across the whole row */
 .toolbar-row { background: @my_surface; border-bottom: 1px solid @my_border; padding: 2px 0; }
 .toolbar-row toolbar:not(.inline-toolbar) { border-bottom: none; }
+/* Address bar (location entry): its own background so it stands apart from the bar around it */
+.toolbar-row entry, .pane-locbox entry { background: @my_addressbar; }
 
 button { background: @my_surface_alt; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 10px; min-height: 22px; }
 button:hover { background: @my_selected; border-color: @my_accent; }
