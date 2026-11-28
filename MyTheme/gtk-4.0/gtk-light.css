@@ -89,6 +89,14 @@ toolbar:not(.inline-toolbar),
     border-bottom: none;
 }
 
+/* Per-pane address bar (dual-pane mode): same bar background and line as the toolbar row, across the full pane width.
+   Scoped to .pane-box > so the bar docked into .toolbar-row (single-pane mode) does not get a second line. */
+.pane-box > .pane-locbox {
+    background-color: @my_surface;
+    border-bottom: 1px solid @my_border;
+    padding: 2px 0;
+}
+
 /* Address bar (location entry): its own background so it stands apart from the bar around it */
 .toolbar-row entry,
 .pane-locbox entry {

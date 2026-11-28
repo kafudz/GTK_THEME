@@ -75,7 +75,9 @@ not local uncommitted changes.
 - Toolbars get a 1px line below them. PCManFM puts its toolbar and address bar
   in one row, which the fork tags with the `toolbar-row` style class, so the
   theme draws a single line across the whole row. With a PCManFM build that
-  lacks the class, only the toolbar part gets the line.
+  lacks the class, only the toolbar part gets the line. In dual-pane mode each
+  pane's address bar (`.pane-locbox`) gets the same background and line across
+  the full pane width.
 - Row spacing: GTK3 rows use 6px/8px padding (sidebar rows 7px/8px); GTK4 rows
   use 8px/12px (sidebar rows 9px/12px). GTK2 tree views use `ythickness = 4`.
 - Status bars are a surface-coloured bar with a 1px top border. PCManFM (GTK3)
