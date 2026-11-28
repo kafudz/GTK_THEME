@@ -34,6 +34,9 @@ headerbar:backdrop, .titlebar:backdrop { background: @my_base; color: @my_fg_dim
 headerbar .title { font-weight: 600; }
 headerbar .subtitle { color: @my_fg_dim; font-size: 0.9em; }
 
+/* Address / location bar (e.g. PCManFM): 1px line separating it from the content below */
+toolbar:not(.inline-toolbar) { background: @my_surface; border-bottom: 1px solid @my_border; padding: 2px 4px; }
+
 button { background: @my_surface_alt; color: @my_fg; border: 1px solid @my_border; border-radius: 2px; padding: 4px 10px; min-height: 22px; }
 button:hover { background: @my_selected; border-color: @my_accent; }
 button:active, button:checked { background: @my_selected; border-color: @my_accent; }
